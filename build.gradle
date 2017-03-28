@@ -1,0 +1,32 @@
+apply from: 'buildconfig/dependencies.gradle'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+
+    ext {
+        androidApplicationId = 'io.scottware.fireandice'
+        androidVersionCode = 1
+        androidVersionName = "0.1"
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testApplicationId = 'io.scottware.fireandice.test'
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
