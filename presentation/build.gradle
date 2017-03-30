@@ -23,6 +23,15 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/rxjava.properties'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -41,6 +50,7 @@ dependencies {
 
     apt presentationDependencies.daggerCompiler
     compile presentationDependencies.recyclerView
+    compile presentationDependencies.realmAdapters
     compile presentationDependencies.appcompat
     compile presentationDependencies.dagger
     compile presentationDependencies.butterKnife
@@ -56,4 +66,6 @@ dependencies {
 
     //Development
     compile developmentDependencies.leakCanary
+    compile developmentDependencies.stetho
+    compile developmentDependencies.stethoOkhttp3
 }
